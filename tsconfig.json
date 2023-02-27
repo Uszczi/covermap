@@ -21,7 +21,6 @@
       "~/*": ["./src/*"],
       "@components/*": ["src/components/*"],
       "@styles/*": ["src/styles/*"]
-      // "~/styles": ["./src/styles"]
     }
   },
   "include": [
