@@ -18,7 +18,10 @@
     "noUncheckedIndexedAccess": true,
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./src/*"]
+      "~/*": ["./src/*"],
+      "@components/*": ["src/components/*"],
+      "@styles/*": ["src/styles/*"]
+      // "~/styles": ["./src/styles"]
     }
   },
   "include": [
@@ -27,7 +30,10 @@
     "**/*.ts",
     "**/*.tsx",
     "**/*.cjs",
-    "**/*.mjs"
+    "**/*.js",
+    "**/*.mjs",
+    "**/*.css",
+    "**/*.scss"
   ],
   "exclude": ["node_modules"]
 }
