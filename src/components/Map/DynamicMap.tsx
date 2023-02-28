@@ -9,10 +9,13 @@ import getRoute from "~/services/routes";
 
 import styles from "./Map.module.scss";
 
+let DEFAULT_CENTER = [51.505, -0.09];
 const { MapContainer } = ReactLeaflet;
 
 const Map = ({ children, className, width, height, ...rest }) => {
   const route = getRoute();
+  DEFAULT_CENTER = route[0];
+
   let mapClassName = styles.map;
 
   if (className) {
@@ -31,7 +34,7 @@ const Map = ({ children, className, width, height, ...rest }) => {
   }, []);
 
   return (
-    <MapContainer className={mapClassName} {...rest}>
+    <MapContainer className={mapClassName} center={DEFAULT_CENTER} {...rest}>
       <>
         <ReactLeaflet.TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
