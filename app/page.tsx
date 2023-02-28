@@ -5,11 +5,13 @@ import { type NextPage } from "next";
 import Map from "@components/Map";
 
 import styles from "@styles/Home.module.scss";
+import Amazing from "@components/Amazing/Amazing";
 
 const Home: NextPage = () => {
   return (
     <>
       <main>
+        <Amazing />
         <div>
           <h1>Cover Map</h1>
         </div>

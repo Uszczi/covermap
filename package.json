@@ -2,6 +2,7 @@
   "name": "covermap",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "next build",
     "dev": "next dev",
@@ -26,6 +27,7 @@
     "react-leaflet": "^4.2.0",
     "sass": "^1.58.3",
     "superjson": "1.9.1",
+    "ts-node": "^10.9.1",
     "zod": "^3.20.2"
   },
   "devDependencies": {
