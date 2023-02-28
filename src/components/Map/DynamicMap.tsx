@@ -9,12 +9,12 @@ import getRoute from "~/services/routes";
 
 import styles from "./Map.module.scss";
 
-let DEFAULT_CENTER = [51.505, -0.09];
+const DEFAULT_CENTER = [51.505, -0.09];
 const { MapContainer } = ReactLeaflet;
 
 const Map = ({ children, className, width, height, ...rest }) => {
   const route = getRoute();
-  DEFAULT_CENTER = route[0];
+  // DEFAULT_CENTER = route[0];
 
   let mapClassName = styles.map;
 
