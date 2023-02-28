@@ -5,17 +5,14 @@ import Leaflet from "leaflet";
 import * as ReactLeaflet from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
-import Layout from "@components/Layout";
-import Section from "@components/Section";
-import Container from "@components/Container";
-import Button from "@components/Button";
+import getRoute from "~/services/routes";
 
-const DEFAULT_CENTER = [38.907132, -77.036546];
 import styles from "./Map.module.scss";
 
 const { MapContainer } = ReactLeaflet;
 
 const Map = ({ children, className, width, height, ...rest }) => {
+  const route = getRoute();
   let mapClassName = styles.map;
 
   if (className) {
@@ -40,6 +37,7 @@ const Map = ({ children, className, width, height, ...rest }) => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
+        <ReactLeaflet.Polyline positions={route} />
       </>
     </MapContainer>
   );

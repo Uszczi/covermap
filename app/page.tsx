@@ -6,7 +6,7 @@ import Map from "@components/Map";
 
 import styles from "@styles/Home.module.scss";
 
-const DEFAULT_CENTER = [38.907132, -77.036546];
+const DEFAULT_CENTER = [51.505, -0.09];
 
 const Home: NextPage = () => {
   return (
