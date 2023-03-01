@@ -8,7 +8,7 @@ const DynamicMap = dynamic(() => import("./DynamicMap"), {
 
 type Route = {
   id: string;
-  points: string;
+  points: any;
   stravaId: string;
 };
 
