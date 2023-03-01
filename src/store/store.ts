@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import userReducer from "~/slices/userSlice";
+import routesReducer from "~/slices/routesSlice";
 
 export function makeStore() {
   return configureStore({
     reducer: {
       user: userReducer,
+      routes: routesReducer,
     },
   });
 }

@@ -4,15 +4,10 @@ import * as ReactLeaflet from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
 import styles from "./Map.module.scss";
+import type { Route } from "~/types/types";
 
 let DEFAULT_CENTER: [number, number] = [51.505, -0.09];
 const { MapContainer } = ReactLeaflet;
-
-type Route = {
-  id: string;
-  points: string;
-  stravaId: string;
-};
 
 const Map = ({ zoom, routes }: { zoom: number; routes: Route[] }) => {
   const mapClassName = styles.map;
