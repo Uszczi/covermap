@@ -5,17 +5,12 @@ import Leaflet from "leaflet";
 import * as ReactLeaflet from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
-import getRoute from "~/services/routes";
-
 import styles from "./Map.module.scss";
 
-const DEFAULT_CENTER = [51.505, -0.09];
+let DEFAULT_CENTER = [51.505, -0.09];
 const { MapContainer } = ReactLeaflet;
 
-const Map = ({ children, className, width, height, ...rest }) => {
-  const route = getRoute();
-  // DEFAULT_CENTER = route[0];
-
+const Map = ({ children, className, width, height, routes, ...rest }) => {
   let mapClassName = styles.map;
 
   if (className) {
@@ -32,6 +27,11 @@ const Map = ({ children, className, width, height, ...rest }) => {
       });
     })();
   }, []);
+  // console.log(routes);
+  const e = routes.map((e) => JSON.parse(e.points));
+  if (e[0]) {
+    DEFAULT_CENTER = e[0][0];
+  }
 
   return (
     <MapContainer className={mapClassName} center={DEFAULT_CENTER} {...rest}>
@@ -40,7 +40,7 @@ const Map = ({ children, className, width, height, ...rest }) => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
-        <ReactLeaflet.Polyline positions={route} />
+        <ReactLeaflet.Polyline positions={e} />
       </>
     </MapContainer>
   );
