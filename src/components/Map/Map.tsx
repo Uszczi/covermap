@@ -6,15 +6,16 @@ const DynamicMap = dynamic(() => import("./DynamicMap"), {
   ssr: false,
 });
 
-const DEFAULT_WIDTH = 600;
-const DEFAULT_HEIGHT = 600;
+type Route = {
+  id: string;
+  points: string;
+  stravaId: string;
+};
 
-const Map = (props) => {
-  const { width = DEFAULT_WIDTH, height = DEFAULT_HEIGHT } = props;
-
+const Map = ({ zoom, routes }: { zoom: number; routes: Route[] }) => {
   return (
-    <div style={{ aspectRatio: width / height }}>
-      <DynamicMap {...props} />
+    <div style={{ aspectRatio: 2 }}>
+      <DynamicMap {...{ zoom, routes }} />
     </div>
   );
 };
