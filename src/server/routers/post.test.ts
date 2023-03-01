@@ -2,8 +2,8 @@
  * Integration test example for the `post` router
  */
 import { createContextInner } from '../context';
-import { AppRouter, appRouter } from './_app';
-import { inferProcedureInput } from '@trpc/server';
+import { type AppRouter, appRouter } from './_app';
+import { type inferProcedureInput } from '@trpc/server';
 
 test('add and get post', async () => {
   const ctx = await createContextInner({});

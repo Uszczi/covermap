@@ -20,7 +20,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <body>
-        //{" "}
         <ClientProvider>
           <Providers>
             <div className="flex h-full flex-col px-5 md:px-0">
@@ -37,7 +36,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               <Footer />
             </div>
           </Providers>
-          //{" "}
         </ClientProvider>
       </body>
     </html>

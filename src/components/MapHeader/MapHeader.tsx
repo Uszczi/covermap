@@ -8,7 +8,10 @@ export default function MapHeader() {
   const dispatch = useDispatch();
 
   const showExampleData = () => {
+    console.log("egb");
+    dispatch(setRoutes([]));
     dispatch(setRoutes(store.getState().routes.exampleRoutes));
+    console.log("wegb");
   };
 
   return (
