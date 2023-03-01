@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { trpc } from "~/client/trpcClient";
 import { setExampleRoutes, setRoutes } from "~/slices/routesSlice";
 import { type RootState } from "~/store/store";
 import type { Route } from "~/types/types";

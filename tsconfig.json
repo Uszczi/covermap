@@ -18,8 +18,9 @@
     "noUncheckedIndexedAccess": true,
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./src/*", "./app/*"],
+      "~/*": ["./src/*", "./app/*", "*"],
       "@components/*": ["src/components/*"],
+      "@/trpc/*": ["trpc/*"],
       "@styles/*": ["src/styles/*"],
       "@sample-data/*": ["src/sample-data/*"]
     },

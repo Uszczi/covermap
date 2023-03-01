@@ -2,7 +2,7 @@ import Head from "next/head";
 
 import { Providers } from "~/provider";
 import "~/styles/globals.css";
-
+import { ClientProvider } from "~/client/trpcClient";
 import TopBar from "@components/TopBar/TobBar";
 import FeatureList from "~/components/FeatureList/FeatureList";
 import type { ReactNode } from "react";
@@ -20,21 +20,25 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <body>
-        <Providers>
-          <div className="flex h-full flex-col px-5 md:px-0">
-            <TopBar />
+        //{" "}
+        <ClientProvider>
+          <Providers>
+            <div className="flex h-full flex-col px-5 md:px-0">
+              <TopBar />
 
-            <MapHeader />
+              <MapHeader />
 
-            <div className="container mx-auto h-max grow">
-              <div>{children}</div>
+              <div className="container mx-auto h-max grow">
+                <div>{children}</div>
+              </div>
+
+              <FeatureList />
+
+              <Footer />
             </div>
-
-            <FeatureList />
-
-            <Footer />
-          </div>
-        </Providers>
+          </Providers>
+          //{" "}
+        </ClientProvider>
       </body>
     </html>
   );
