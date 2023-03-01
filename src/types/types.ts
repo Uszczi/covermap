@@ -1,5 +1,5 @@
 export type Route = {
   id: string;
-  points: string;
+  points: Array<[number, number]>;
   stravaId: string;
 };

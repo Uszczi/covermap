@@ -1,25 +1,34 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setExampleRoutes, setRoutes } from "~/slices/routesSlice";
+import { type RootState } from "~/store/store";
+import type { Route } from "~/types/types";
 
 const DynamicMap = dynamic(() => import("./DynamicMap"), {
   ssr: false,
 });
 
-type Route = {
-  id: string;
-  points: any;
-  stravaId: string;
-};
+const Map = ({
+  zoom,
+  exampleRoutes,
+}: {
+  zoom: number;
+  exampleRoutes: Route[];
+}) => {
+  const dispatch = useDispatch();
+  const routes = useSelector((store: RootState) => store.routes.routes);
 
-const Map = ({ zoom, routes }: { zoom: number; routes: Route[] }) => {
-  const value = useSelector((store) => store.routes.value);
+  useEffect(() => {
+    dispatch(setExampleRoutes(exampleRoutes));
+    console.log(exampleRoutes);
+  }, [exampleRoutes, dispatch]);
 
   return (
     <div style={{ aspectRatio: 2 }}>
-      <h1>{value}</h1>
-      <DynamicMap {...{ zoom, routes }} />
+      <DynamicMap zoom={zoom} routes={routes} />
     </div>
   );
 };
