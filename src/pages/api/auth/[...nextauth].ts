@@ -6,7 +6,7 @@ export const nextAuthOptions: NextAuthOptions = {
     CredentialsProvider({
       id: "github",
       name: "Mocked GitHub",
-      async authorize(credentials) {
+      authorize(credentials) {
         const name = credentials?.name as string;
         const user: User = {
           id: name,
