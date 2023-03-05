@@ -2,8 +2,8 @@ import Map from "@components/Map";
 
 import { type Route as ModelRoute } from "@prisma/client";
 import { PrismaClient } from "@prisma/client";
-import { useDispatch } from "react-redux";
-import { setExampleRoutes } from "~/slices/routesSlice";
+import FeatureList from "~/components/FeatureList/FeatureList";
+import MapHeader from "~/components/MapHeader/MapHeader";
 
 import type { Route } from "~/types/types";
 
@@ -20,7 +20,11 @@ export default async function Home() {
 
   return (
     <div className="pt-6">
+      <MapHeader />
+
       <Map zoom={12} exampleRoutes={routes} />
+
+      <FeatureList />
     </div>
   );
 }
